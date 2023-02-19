@@ -9,7 +9,7 @@ public class UI_Tween : MonoBehaviour
 
 
     public void showMenu(){
-        LeanTween.scale(firstMenu, new Vector3(1, 1, 1),1.2f).setDelay(1f).setEase(LeanTweenType.easeOutBack);
+        LeanTween.scale(firstMenu, new Vector3(0.5f, 0.5f, 0.5f),1.2f).setDelay(1f).setEase(LeanTweenType.easeOutBack);
     }
 
     // Controller Animations
@@ -20,6 +20,8 @@ public class UI_Tween : MonoBehaviour
 
     public void turnLeft(){
         LeanTween.rotate(firstMenu, new Vector3(0, transformFirstmMenu.eulerAngles.y-90f, 0),0.5f).setEase(LeanTweenType.easeInSine);
+         // for external links: Application.OpenURL("http://unity3d.com/");
+    
     }
 
     // Option Animations
