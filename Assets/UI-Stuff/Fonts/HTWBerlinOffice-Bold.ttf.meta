@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 571f84902c4427045a55d48cb1688d5f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - HTWBerlin Office
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 469a5f7b09fd51d40b6303a23b49038d, type: 3}
+  - {fileID: 12800000, guid: b05d8ce0a4939e54eaabc86343d24eeb, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
