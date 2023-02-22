@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KharitaApp.unity
     guid: 682d53b9f1cbd8b4295c68ca67064ff1
+  - enabled: 1
+    path: Assets/Scenes/KharitaApp_Admin.unity
+    guid: 3dade2d43cb85cb4f88cb018519ede73
   m_configObjects: {}

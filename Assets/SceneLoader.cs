@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public void SceneChanger(){
+    public void SceneChangeToKharita(){
         SceneManager.LoadScene(1, LoadSceneMode.Single);
+    }
+
+    public void SceneChangeToKharitaAdmin(){
+        SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
 
     public void MenuLoader(){
