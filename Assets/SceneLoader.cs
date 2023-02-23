@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public void SceneChanger(){
+    public void SceneChangeToKharita(){
         SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 
