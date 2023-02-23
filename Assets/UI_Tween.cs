@@ -4,8 +4,26 @@ using UnityEngine;
 
 public class UI_Tween : MonoBehaviour
 {
-    [SerializeField] GameObject firstMenu, option_1_open, option_1_close, option_2_open, option_2_close, option_3_open, option_3_close, option_4_open, option_4_close;
+    [SerializeField] GameObject 
+        firstMenu, 
+        option_1_open, 
+        option_1_close, 
+        option_2_open, 
+        option_2_close, 
+        option_3_open, 
+        option_3_close, 
+        option_4_open, 
+        option_4_close;
+
     [SerializeField] Transform transformFirstMenu;
+
+    [SerializeField] RectTransform 
+        option_1_hint_open, 
+        option_1_hint_close, 
+        option_2_hint_open, 
+        option_2_hint_close, 
+        option_3_hint_open, 
+        option_3_hint_close;
 
 
     public void showMenu(){
@@ -20,7 +38,6 @@ public class UI_Tween : MonoBehaviour
 
     public void turnLeft(){
         LeanTween.rotate(firstMenu, new Vector3(0, transformFirstMenu.eulerAngles.y-90f, 0),0.5f).setEase(LeanTweenType.easeInSine);
-         // for external links: Application.OpenURL("http://unity3d.com/");
     
     }
 
@@ -50,6 +67,32 @@ public class UI_Tween : MonoBehaviour
     }
     public void closeOption_4(){
         LeanTween.scale(option_4_close, new Vector3(1, 0, 0),0.5f).setEase(LeanTweenType.easeInSine);
+    }
+
+    // Option Hint Menu Animations
+
+    public void openOption_1_Hint(){
+        LeanTween.move(option_1_hint_open, new Vector3(0, 450, 0), 1.2f).setEase(LeanTweenType.easeOutBack);
+    }
+
+    public void openOption_2_Hint(){
+        LeanTween.move(option_2_hint_open, new Vector3(0, 450, 0), 1.2f).setEase(LeanTweenType.easeOutBack);
+    }
+
+    public void openOption_3_Hint(){
+        LeanTween.move(option_3_hint_open, new Vector3(0, 450, 0), 1.2f).setEase(LeanTweenType.easeOutBack);
+    }
+
+    public void closeOption_1_Hint(){
+        LeanTween.move(option_1_hint_close, new Vector3(0, -450, 0), 0.1f);
+    }
+
+    public void closeOption_2_Hint(){
+        LeanTween.move(option_2_hint_close, new Vector3(0, -450, 0), 0.1f);
+    }
+
+    public void closeOption_3_Hint(){
+        LeanTween.move(option_3_hint_close, new Vector3(0, -450, 0), 0.1f);
     }
 
 }

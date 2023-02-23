@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using UnityEngine;
+using ZXing;
+
+public class QRCodeScanner_Neu : MonoBehaviour
+{
+    private WebCamTexture camTex;
+    private Rect screenRect;
+
+
+
+    private void Start() {
+        screenRect = new Rect(0, 0, Screen.width, Screen.height);
+        camTex = new WebCamTexture();
+        camTex.requestedHeight = Screen.height;
+        camText.requestedWidth = Screen.width;
+        if(camTex != null){
+            camTex.Play();
+        }
+    }
+
+    private void LateUpdate() {
+        IBarcodeReader reader = new BarcodeReader();
+        Result data = reader.Decode(camTex.GetPixels32(), camTex.width, camTex.height);
+
+        if(data != null){
+            if(data.Text.Equals("https://lsf.htw-berlin.de/qisserver/rds?state=wplan&act=Raum&pool=Raum&show=plan&P.vx=kurz&raum.rgid=4582")){
+                    string scannedRoomID = Regex.Match(data.Text, @"\d+(?!\d+").Value;
+                    Debug.Log("Room ID is: " + scannedRoomID);
+            }else{
+                Debug.Log("Scanning...");
+            }
+        }else{
+            return null;
+        }
+    }
+
+}
