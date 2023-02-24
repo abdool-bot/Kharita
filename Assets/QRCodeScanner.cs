@@ -13,6 +13,16 @@ public class QRCodeScanner : MonoBehaviour
     private bool cameraInitialized;
 
     [SerializeField]
+    private QRCodeScanner scannerOn;
+
+    [SerializeField]
+    private Toggle scannerToggle;
+
+    [SerializeField]
+    private UI_Tween qrCodeAnimation;
+
+
+    [SerializeField]
     private Text[] option_roomNumbers;
 
     private BarcodeReader barCodeReader;
@@ -68,6 +78,13 @@ public class QRCodeScanner : MonoBehaviour
                         for(int i = 0; i < option_roomNumbers.Length; i++){
                             option_roomNumbers[i].text = roomNumber;
                         }
+
+                        qrCodeAnimation.qr_code_Hint();
+                        Handheld.Vibrate();
+
+                        scannerOn.enabled = false;
+                        scannerToggle.isOn = false;
+                        scannerToggle.Select();
                     
                     }
 
@@ -80,6 +97,13 @@ public class QRCodeScanner : MonoBehaviour
                         for(int i = 0; i < option_roomNumbers.Length; i++){
                             option_roomNumbers[i].text = roomNumber;
                         }
+
+                        qrCodeAnimation.qr_code_Hint();
+                        Handheld.Vibrate();
+
+                        scannerOn.enabled = false;
+                        scannerToggle.isOn = false;
+                        scannerToggle.Select();
                     
                     }
 
@@ -92,7 +116,14 @@ public class QRCodeScanner : MonoBehaviour
                         for(int i = 0; i < option_roomNumbers.Length; i++){
                             option_roomNumbers[i].text = roomNumber;
                         }
-                    
+
+                        qrCodeAnimation.qr_code_Hint();
+                        Handheld.Vibrate();
+
+                        scannerOn.enabled = false;
+                        scannerToggle.isOn = false;
+                        scannerToggle.Select();
+                        
                     }
                 }
                 else

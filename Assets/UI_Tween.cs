@@ -23,7 +23,8 @@ public class UI_Tween : MonoBehaviour
         option_2_hint_open, 
         option_2_hint_close, 
         option_3_hint_open, 
-        option_3_hint_close;
+        option_3_hint_close,
+        qr_code_hint;
 
 
     public void showMenu(){
@@ -93,6 +94,13 @@ public class UI_Tween : MonoBehaviour
 
     public void closeOption_3_Hint(){
         LeanTween.move(option_3_hint_close, new Vector3(0, -450, 0), 0.1f);
+    }
+
+    // QR-Code Scan Animation
+
+    public void qr_code_Hint(){
+        LeanTween.move(qr_code_hint, new Vector3(0, 0, 0),1f).setDelay(0.5f).setEase(LeanTweenType.easeOutBack);
+        LeanTween.move(qr_code_hint, new Vector3(0, -450, 0),1.6f).setDelay(6f).setEase(LeanTweenType.easeInBack);
     }
 
 }
