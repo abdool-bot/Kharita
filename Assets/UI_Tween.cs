@@ -28,7 +28,15 @@ public class UI_Tween : MonoBehaviour
 
 
     public void showMenu(){
-        LeanTween.scale(firstMenu, new Vector3(1.5f, 1.5f, 1.5f),1.2f).setDelay(1f).setEase(LeanTweenType.easeOutBack);
+        LeanTween.scale(firstMenu, new Vector3(5f, 5f, 5f),1.6f).setEase(LeanTweenType.easeOutBack);
+    }
+
+    public void showMenu2(){
+        LeanTween.scale(firstMenu, new Vector3(5f, 5f, 5f),1.6f).setEase(LeanTweenType.easeOutBack);
+    }
+
+    public void showMenu3(){
+        LeanTween.scale(firstMenu, new Vector3(5f, 5f, 5f),1.6f).setEase(LeanTweenType.easeOutBack);
     }
 
     // Controller Animations
