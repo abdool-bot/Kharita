@@ -1,7 +1,7 @@
 
 ![Logo](https://i.imgur.com/aRONJ3I.png)
 
-[                                                         Download the APK here!](https://github.com/abdool-bot/Kharita/releases/tag/v.1.0)
+[○ Download the APK here! ○](https://github.com/abdool-bot/Kharita/releases/tag/v.1.0)
 
 # 
 
