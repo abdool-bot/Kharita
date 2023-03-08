@@ -12,4 +12,8 @@ public class SceneLoader : MonoBehaviour
     public void MenuLoader(){
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
+
+    public void CloseApplication(){
+        Application.Quit();
+    }
 }
