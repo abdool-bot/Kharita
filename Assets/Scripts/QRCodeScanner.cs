@@ -21,7 +21,7 @@ public class QRCodeScanner : MonoBehaviour
     [SerializeField]
     private UI_Tween qrCodeAnimation;
 
-
+    // Creating a list of 'Text' components in order to replace all placeholder with the scanned room number
     [SerializeField]
     private Text[] option_roomNumbers;
 
@@ -29,6 +29,7 @@ public class QRCodeScanner : MonoBehaviour
     private string pattern = @"\d+(?!\d+)";
     public WebViewer webViewString = null;
 
+    // Base links for the browser and Reference links or the scanner 
     // ↓ Can be replaced with a database ↓
 
     private string baseURL_579 = "https://lsf.htw-berlin.de/qisserver/rds?state=wplan&act=Raum&pool=Raum&show=plan&P.vx=kurz&raum.rgid=4582"; 
@@ -49,19 +50,19 @@ public class QRCodeScanner : MonoBehaviour
 
     private IEnumerator InitializeCamera()
     {
-        // Waiting a little seem to avoid the Vuforia's crashes.
+        // Waiting a little seem avoid Vuforia crashes or black screens.
         yield return new WaitForSeconds(1.25f);
 
+        // Setting up the frame of the scanned area
         var isFrameFormatSet = VuforiaBehaviour.Instance.CameraDevice.SetFrameFormat(PixelFormat.RGB888, true);
-        Debug.Log(String.Format("FormatSet : {0}", isFrameFormatSet));
 
-        // Force autofocus.
+        // Force auto-focus on camera.
         var isAutoFocus = VuforiaBehaviour.Instance.CameraDevice.SetFocusMode(FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
         if (!isAutoFocus)
         {
             VuforiaBehaviour.Instance.CameraDevice.SetFocusMode(FocusMode.FOCUS_MODE_CONTINUOUSAUTO);
         }
-        Debug.Log(String.Format("AutoFocus : {0}", isAutoFocus));
+        
         cameraInitialized = true;
     }
 
@@ -73,11 +74,13 @@ public class QRCodeScanner : MonoBehaviour
         
             if (cameraInitialized)
         {
+                // Retrieving the dimensions of the already set up frame
                 var cameraFeed = VuforiaBehaviour.Instance.CameraDevice.GetCameraImage(PixelFormat.RGB888);
                 if (cameraFeed == null)
                 {
                     return;
                 }
+                // ZXing: decoding the variable cameraFeed to register any sort of barcodes (including QR-Code)
                 var data = barCodeReader.Decode(cameraFeed.Pixels, cameraFeed.BufferWidth, cameraFeed.BufferHeight, RGBLuminanceSource.BitmapFormat.RGB24);
                 if (data != null)
                 {
@@ -107,6 +110,7 @@ public class QRCodeScanner : MonoBehaviour
         }
     }
 
+    // Method to distribute the scanned roomNumber with its baseURL and refURL over the assigned objects inside the Unity scene.
     private void roomNumberSetup(
         string baseURL,
         string refURL, 
